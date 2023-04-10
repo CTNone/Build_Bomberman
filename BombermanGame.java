@@ -53,9 +53,8 @@ public class BombermanGame extends Application {
         txt2.setX(600);
         txt2.setY(20);
 
-
         //text de tinh thoi gian choi
-        Text time = new Text("0");
+        Text time = new Text("180");
         time.setFont(Font.font("Verdana", FontWeight.BOLD, 11));
         time.setFill(Color.WHITE);
         time.setX(190);
@@ -76,31 +75,27 @@ public class BombermanGame extends Application {
         //fill black cho scence
         scene.setFill(Color.BLACK);
 
-        // Văn bản của số sẽ được tăng lên mỗi giây
-        /**new java.util.Timer().schedule(new java.util.TimerTask() {
-            int i = 0;
+        // Văn bản của số sẽ được giảm đi mỗi giây
+        new java.util.Timer().schedule(new java.util.TimerTask() {
+             int i = 180;
+             @Override
+             public void run() {
+                  i--;
+                  // Cập nhật văn bản số trong luồng UI
+                 javafx.application.Platform.runLater(() -> {
+                      time.setText(Integer.toString(i));
+                 });
 
-            @Override
-            public void run() {
-                i++;
-
-                // Cập nhật văn bản số trong luồng UI
-                javafx.application.Platform.runLater(() -> {
-                    time.setText(Integer.toString(i));
-                });
-
-                // Nếu số đạt 10 thì ngừng
-                if (i == 10) {
-                    // Loại bỏ số khỏi Scene
-                    javafx.application.Platform.runLater(() -> {
-                        scene.getRoot().getChildrenUnmodifiable().remove(time);
-                    });
-                    this.cancel();
-                }
+                 // Nếu số đạt 0 thì ngừng
+                 if (i == 0) {
+                     // Loại bỏ số khỏi Scene
+                     javafx.application.Platform.runLater(() -> {
+                          scene.getRoot().getChildrenUnmodifiable().remove(time);
+                     });
+                     this.cancel();
+                 }
             }
-        }, 0, 1000);*/
-
-
+            }, 0, 1000);
 
 
         // Them scene vao stage
@@ -108,7 +103,7 @@ public class BombermanGame extends Application {
         stage.setTitle("BombermenGame");
         stage.show();
 
-        createMap();
+
 
         AnimationTimer timer = new AnimationTimer() {
             @Override
@@ -118,9 +113,7 @@ public class BombermanGame extends Application {
             }
         };
         timer.start();
-
-
-
+        createMap();
         Entity bomberman = new Bomber(1, 2, Sprite.player_right.getFxImage());
         entities.add(bomberman);
 
@@ -153,24 +146,30 @@ public class BombermanGame extends Application {
                 Entity object;
                 if (ch == '#') {
                     // Tạo đối tượng Wall tại vị trí (x, y)
-                    object = new Wall( x, y + 1, Sprite.wall.getFxImage());
+                    object = new Wall(x, y + 1, Sprite.wall.getFxImage());
                 } else if (ch == '*') {
                     // Tạo đối tượng Brick tại vị trí (x, y)
-                    object = new Brick(x , y + 1, Sprite.brick.getFxImage());
+                    object = new Bomber(x , y + 1, Sprite.brick.getFxImage());
                 } else if (ch == 'X') {
-                    // Tạo đối tượng Grass tại vị trí (x, y)
-                    object = new Portal(x, y + 1, Sprite.portal.getFxImage());
+                    // Tạo đối tượng portal tại vị trí (x, y)
+                    object = new Bomber(x, y + 1, Sprite.portal.getFxImage());
                 } else if (ch == '1') {
+                    // Tạo đối tượng Balloom tại vị trí (x, y)
                     object = new Bomber(x, y + 1, Sprite.balloom_left1.getFxImage());
                 } else if (ch == '2') {
-                    object = new Oneal(x, y + 1, Sprite.oneal_right1.getFxImage());
+                    //Tạo đối tượng oneal tại vị trí (x, y)
+                    object = new Bomber(x, y + 1, Sprite.oneal_right1.getFxImage());
                 } else if (ch == 'b') {
-                    object = new BombItem(x, y + 1, Sprite.powerup_bombs.getFxImage());
+                    //Tạo đối tượng powerup bomb tại vị trí (x, y)
+                    object = new Bomber(x, y + 1, Sprite.powerup_bombs.getFxImage());
                 } else if (ch == 'f') {
-                    object = new FlameItem(x, y + 1, Sprite.powerup_flames.getFxImage());
+                    //Tạo đối tượng powerup flames tại vị trí (x, y)
+                    object = new Bomber(x, y + 1, Sprite.powerup_flames.getFxImage());
                 } else if (ch == 's') {
-                    object = new SpeedItem(x, y + 1, Sprite.powerup_speed.getFxImage());
+                    //Tạo đối tượng powerup speed tại vị trí (x, y)
+                    object = new Bomber(x, y + 1, Sprite.powerup_speed.getFxImage());
                 } else {
+                    //Tạo đối tượng grass tại vị trí (x, y)
                     object = new Grass(x, y + 1, Sprite.grass.getFxImage());
                 }
                 stillObjects.add(object);
