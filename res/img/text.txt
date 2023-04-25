@@ -1,1 +1,8 @@
-
+vd: để tạo 1 folder trên github 
++ vào nơi ( đường dẫn ) muốn tạo folder 
++ nhần Add file -> Creat new file 
++ viết tên file -> nhấn lưu nếu chỉ muốn tạo 1 file.
++ nếu muốn tạo 1 folder thì bắt buộc folder đó phải không rỗng 
+  => tạo thêm một file bất kì trong folder
+  => tại chỗ đặt tên thêm '/' rồi viết thêm 1 tên file
+  => lưu => tạo xog 1 folder
