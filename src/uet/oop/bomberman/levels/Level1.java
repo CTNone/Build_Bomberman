@@ -31,8 +31,8 @@ public class Level1 {
         player.setY(32);
         is_sound_died = false;
         is_sound_title = false;
-        time_number = 120;
-        bomb_number = 20;
+        time_number = 180;
+        bomb_number = 30;
         is_bomb = 0;
         speed = 1;
 
@@ -41,15 +41,15 @@ public class Level1 {
         Image transparent = new Image("images/transparent.png");
         author_view.setImage(transparent);
 
-        Animal enemy1 = new Ballom(4, 4, Sprite.balloom_left1.getFxImage());
-        Animal enemy2 = new Ballom(9, 9, Sprite.balloom_left1.getFxImage());
-        Animal enemy3 = new Ballom(22, 6, Sprite.balloom_left1.getFxImage());
+        Animal enemy1 = new Ballom(13, 1, Sprite.balloom_left1.getFxImage());
+        Animal enemy2 = new Ballom(18, 3, Sprite.balloom_left1.getFxImage());
+        Animal enemy3 = new Ballom(5, 13, Sprite.balloom_left1.getFxImage());
         enemy.add(enemy1);
         enemy.add(enemy2);
         enemy.add(enemy3);
 
-        Animal enemy4 = new Oneal(7, 6, Sprite.oneal_right1.getFxImage());
-        Animal enemy5 = new Oneal(13, 8, Sprite.oneal_right1.getFxImage());
+        Animal enemy4 = new Oneal(15, 7, Sprite.oneal_right1.getFxImage());
+        Animal enemy5 = new Oneal(24, 3, Sprite.oneal_right1.getFxImage());
         enemy.add(enemy4);
         enemy.add(enemy5);
 
