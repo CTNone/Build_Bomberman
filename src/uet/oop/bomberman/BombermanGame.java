@@ -103,7 +103,7 @@ public class BombermanGame extends Application {
         });
 
         stage.setScene(scene);
-        stage.setTitle("Bomberman by Group");
+        stage.setTitle("Bomberman ");
         Image icon = new Image("images/ttsalpha4.0@0.5x.png");
         stage.getIcons().add(icon);
         main_stage = stage;
@@ -177,7 +177,7 @@ public class BombermanGame extends Application {
         long now = System.currentTimeMillis();
         if (now - last_time > 1000) {
             last_time = System.currentTimeMillis();
-            main_stage.setTitle("Bomberman by Group | " + frame + " frame");// tiêu đề và FPS trong khi chơi
+            main_stage.setTitle("Bomberman | " + frame + " frame");// tiêu đề và FPS trong khi chơi
             frame = 0;
 
             time.setText("Time: " + time_number);
