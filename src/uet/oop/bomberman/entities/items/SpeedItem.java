@@ -1,10 +1,10 @@
-package Entity.items;
+package uet.oop.bomberman.entities.items;
 
 import javafx.scene.image.Image;
-import Entity.Entity;
-import Graphics.Sprite;
+import uet.oop.bomberman.entities.Entity;
+import uet.oop.bomberman.graphics.Sprite;
 
-import static GameRunner.RunBomberman.*;
+import static uet.oop.bomberman.BombermanGame.*;
 
 public class SpeedItem extends Items {
     public static int speed = 1;
@@ -20,7 +20,7 @@ public class SpeedItem extends Items {
         super(received);
     }
 
-    // Enhance the speed of player if a player gets the item
+    // Nâng cao tốc độ của người chơi nếu người chơi nhận được vật phẩm
     @Override
     public void update() {
         for (Entity entity : block)
@@ -32,7 +32,7 @@ public class SpeedItem extends Items {
             if (player.getX() == this.x && player.getY() == this.y) {
                 this.setImg(Sprite.grass.getFxImage());
                 this.received = true;
-                speed = 2;
+                speed += 1;
             }
     }
 }
