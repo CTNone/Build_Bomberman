@@ -1,10 +1,11 @@
-package Entity.animal;
+package uet.oop.bomberman.entities.ghost;
 
-import Control.Move;
-import Graphics.Sprite;
 import javafx.scene.image.Image;
+import uet.oop.bomberman.control.Move;
+import uet.oop.bomberman.entities.Animal;
+import uet.oop.bomberman.graphics.Sprite;
 
-import static GameRunner.RunBomberman.*;
+import static uet.oop.bomberman.BombermanGame.*;
 
 public class Oneal extends Animal {
     private static int swap_kill = 1;
@@ -34,7 +35,7 @@ public class Oneal extends Animal {
                 swap_kill = 2;
             } 
             else if (swap_kill == 2) {
-                animal.setImg(Sprite.player_dead_3.getFxImage());
+                animal.setImg(Sprite.player_dead3.getFxImage());
                 swap_kill = 3;
             } 
             else {
@@ -49,7 +50,7 @@ public class Oneal extends Animal {
     public void update() {
         count_kill++;
         for (Animal animal : enemy) {
-            if (animal instanceof Oneal && !animal.life)
+            if (animal instanceof Oneal && !((Oneal) animal).life)
                 killOneal(animal);
         }
 

@@ -73,7 +73,7 @@ public class SoundManager extends JFrame{
             title_screen.close();
             bomb_explosion.close();
             if (!is_sound_died) { // just_died
-                new SoundManager("sound/10 Game Over.wav", "just_died");
+                new SoundManager("sound/died.wav", "just_died");
                 is_sound_died = true;
             }
         }

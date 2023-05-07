@@ -1,14 +1,15 @@
-package Entity.animal;
+package uet.oop.bomberman.entities.ghost;
 
 import java.util.List;
 
-import Control.Move;
-import Entity.animal.intelligent.AStar;
-import Entity.animal.intelligent.Node;
-import Graphics.Sprite;
+import uet.oop.bomberman.control.Move;
+import uet.oop.bomberman.entities.intelligent.AStar;
+import uet.oop.bomberman.entities.intelligent.Node;
+import uet.oop.bomberman.graphics.Sprite;
 import javafx.scene.image.Image;
+import uet.oop.bomberman.entities.Animal;
 
-import static GameRunner.RunBomberman.*;
+import static uet.oop.bomberman.BombermanGame.*;
 
 public class Doll extends Animal{
     private static int swap_kill = 1;
@@ -36,7 +37,7 @@ public class Doll extends Animal{
                 animal.setImg(Sprite.doll_dead.getFxImage());
                 swap_kill = 2;
             } else if (swap_kill == 2) {
-                animal.setImg(Sprite.player_dead_3.getFxImage());
+                animal.setImg(Sprite.player_dead3.getFxImage());
                 swap_kill = 3;
             } else {
                 animal.setLife(false);
@@ -90,7 +91,7 @@ public class Doll extends Animal{
     public void update() {
         count_kill++;
         for (Animal animal:enemy) {
-            if (animal instanceof Doll && !animal.life)
+            if (animal instanceof Doll && !((Doll) animal).life)
                 killDoll(animal);
         }
         moveDoll();

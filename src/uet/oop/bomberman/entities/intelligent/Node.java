@@ -1,4 +1,4 @@
-package Entity.animal.intelligent;
+package uet.oop.bomberman.entities.intelligent;
 
 public class Node {
     private int h;

@@ -74,19 +74,19 @@ public class BombermanGame extends Application {
             if(player.isLife()) {
                 switch (event.getCode()) {
                     case DOWN:
-                        System.out.println("down");
+                       // System.out.println("down");
                         Move.down(player);
                         break;
                     case UP:
-                        System.out.println("up");
+                        //System.out.println("up");
                         Move.up(player);
                         break;
                     case LEFT:
-                        System.out.println("left");
+                       // System.out.println("left");
                         Move.left(player);
                         break;
                     case RIGHT:
-                        System.out.println("right");
+                       // System.out.println("right");
                         Move.right(player);
                         break;
                     case SPACE:

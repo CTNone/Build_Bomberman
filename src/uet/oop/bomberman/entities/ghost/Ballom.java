@@ -1,17 +1,18 @@
-package Entity.animal;
+package uet.oop.bomberman.entities.ghost;
 
-import Control.Move;
+import uet.oop.bomberman.control.Move;
 import javafx.scene.image.Image;
-import Graphics.Sprite;
+import uet.oop.bomberman.entities.Animal;
+import uet.oop.bomberman.graphics.Sprite;
 
 import java.util.Random;
 
-import static GameRunner.RunBomberman.enemy;
-import static GameRunner.RunBomberman.list_kill;
+import static uet.oop.bomberman.BombermanGame.enemy;
+import static uet.oop.bomberman.BombermanGame.list_kill;
 
 public class Ballom extends Animal {
     private static int swap_kill = 1;
-    private static int count_kill = 0;  // Count the number of Balloms destroyed
+    private static int count_kill = 0;  // s? l??ng Ballom ?ã ch?t
 
     public Ballom(int is_move, int swap, String direction, int count, int count_to_run) {
         super(4, 1, "up", 0, 0);
@@ -21,18 +22,18 @@ public class Ballom extends Animal {
 
     }
     
-    private void killBallom(Animal animal) {    //Bomber destroys Balloon
+    private void killBallom(Animal animal) {    //gi?t Ballom
         if (count_kill % 16 == 0) {
             if (swap_kill == 1) {
-                animal.setImg(Sprite.mob_dead_1.getFxImage());
+                animal.setImg(Sprite.mob_dead1.getFxImage());
                 swap_kill = 2;
             } 
             else if (swap_kill == 2) {
-                animal.setImg(Sprite.mob_dead_2.getFxImage());
+                animal.setImg(Sprite.mob_dead2.getFxImage());
                 swap_kill = 3;
             } 
             else if (swap_kill == 3) {
-                animal.setImg(Sprite.mob_dead_3.getFxImage());
+                animal.setImg(Sprite.mob_dead3.getFxImage());
                 swap_kill = 4;
             } 
             else {
@@ -60,7 +61,7 @@ public class Ballom extends Animal {
         kill();
         count_kill++;
         for (Animal animal : enemy) {
-            if (animal instanceof Ballom && !animal.life)
+            if (animal instanceof Ballom && !((Ballom) animal).life)
                 killBallom(animal);
         }
 

@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.image.Image;
 
-import static uet.oop.bomberman.BombermanGame.*;//.RunBomberman.*;
-import static uet.oop.bomberman.BombermanGame.player;//.RunBomberman.player;
+import static uet.oop.bomberman.BombermanGame.*;
+import static uet.oop.bomberman.BombermanGame.player;
 import static uet.oop.bomberman.control.menu.bomb_number;
 
 public class Bomb extends Entity {

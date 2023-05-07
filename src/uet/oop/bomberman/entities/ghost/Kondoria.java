@@ -1,10 +1,12 @@
-package Entity.animal;
+package uet.oop.bomberman.entities.ghost;
 
-import Control.Move;
 import javafx.scene.image.Image;
-import Graphics.Sprite;
+import uet.oop.bomberman.control.Move;
+import uet.oop.bomberman.entities.Animal;
+import uet.oop.bomberman.graphics.Sprite;
 
-import static GameRunner.RunBomberman.*;
+import static uet.oop.bomberman.BombermanGame.enemy;
+import static uet.oop.bomberman.BombermanGame.width;
 
 public class Kondoria extends Animal {
 
@@ -34,7 +36,7 @@ public class Kondoria extends Animal {
                 swap_kill = 2;
             } 
             else if (swap_kill == 2) {
-                animal.setImg(Sprite.player_dead_3.getFxImage());
+                animal.setImg(Sprite.player_dead3.getFxImage());
                 swap_kill = 3;
             } 
             else {
@@ -49,7 +51,7 @@ public class Kondoria extends Animal {
     public void update() {
         count_kill++;
         for (Animal animal : enemy) {
-            if (animal instanceof Kondoria && !animal.life)
+            if (animal instanceof Kondoria && !((Kondoria) animal).life)
                 killKondoria(animal);
         }
 
