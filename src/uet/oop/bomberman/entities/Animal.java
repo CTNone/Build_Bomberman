@@ -3,11 +3,11 @@ package uet.oop.bomberman.entities;
 import javafx.scene.image.Image;
 
 public abstract class Animal extends  Entity{
-    protected int is_move;        // jump with pixel
-    protected int swap;           // swap image
+    protected int is_move;        // Nhảy với Pixel
+    protected int swap;           // Hoán đổi hình ảnh
     protected String direction;   // hướng đi của player
-    protected int count;          // count step of a jump
-    protected int count_to_run;   // run after count frame
+    protected int count;          // Đếm bước nhảy
+    protected int count_to_run;   // Chạy sau khung đếm
     protected boolean life;       // kiểm tra sống
 
     public Animal(int xUnit, int yUnit, Image img) {

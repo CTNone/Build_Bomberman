@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.image.Image;
 
-import static uet.oop.bomberman.BombermanGame.*;
-import static uet.oop.bomberman.BombermanGame.player;
+import static uet.oop.bomberman.BombermanGame.*;//.RunBomberman.*;
+import static uet.oop.bomberman.BombermanGame.player;//.RunBomberman.player;
 import static uet.oop.bomberman.control.menu.bomb_number;
 
 public class Bomb extends Entity {
@@ -33,13 +33,14 @@ public class Bomb extends Entity {
     private static boolean is_edge = false;     // Kiểm tra xem cạnh đó có tồn tại không
     private static boolean is_middle = false;  //   Kiểm tra xem quả bom có phát nổ ở trung tâm không  (plus sign, not T )
     public static int is_bomb = 0;      //  Kiểm tra xem có bom ở đó không: /0 không có bom /1 có bom /2 vụ nổ
-
+    public static int numBoms = 1; // số lượng bom tối đa có thể đặt liên tiếp
     public Bomb(int x, int y, Image img) {
         super(x, y, img);
     }
 
     public static void putBomb() {      // sử dụng cho Bomber để đặt bom
-        if (is_bomb == 0 && bomb_number > 0) {
+       // if (is_bomb == 0 && bomb_number > 0) {
+        if(1 == 1){
             new SoundManager("sound/put_bombs.wav", "putBomb");
             bomb_number--;
             is_bomb = 1;
@@ -155,7 +156,7 @@ public class Bomb extends Entity {
         block.addAll(list_bomb_middle_height);
     }
 
-    public static void explosionCenter() {      // Xác định tâm nổ của quả bom
+    public static void explosionCenter() {      // Xác định tâm nổ của quả bom và chuyển đổi hình ảnh bom nổ
         if (swap_explosion == 1) {
             bomb.setImg(Sprite.bomb_exploded.getFxImage());
             list_kill[bomb.getX() / 32][bomb.getY() / 32] = 4;
@@ -256,7 +257,11 @@ public class Bomb extends Entity {
 
     }
 
-    private static void checkActive() {     // Kiểm tra xem quả bom đã trải qua những giai đoạn nào trước khi phát nổ
+    private static void checkActive() {     // Kiểm tra xem quả bom đã trải qua những giai đoạn nào :(đang chờ phát nổ hoặc đang phát nổ)
+        //Nếu quả bom đang trong giai đoạn chờ phát nổ,
+        // phương thức này sẽ kiểm tra thời gian từ khi quả bom được đặt đến hiện tại và kích hoạt (phát nổ) nếu đã đủ 2 giây.
+        // Nếu quả bom đang phát nổ hoặc đã phát nổ xong, phương thức này không làm gì cả.
+
         if (is_bomb == 1) {
             if (System.currentTimeMillis() - time_bomb < 2000L) {
                 if (System.currentTimeMillis() - time_tmp > 100L) {
@@ -274,6 +279,10 @@ public class Bomb extends Entity {
     }
 
     private static void checkExplosion() {      // Kiểm tra thời gian kích nổ của bom sau khi bom được kích hoạt
+        //nếu đang trong thời gian kích nổ, phương thức này sẽ kiểm tra thời gian từ khi quả bom được kích hoạt
+        // đến hiện tại và tạo ra hiệu ứng nổ, cập nhật các trạng thái của các đối tượng có liên quan
+       //Nếu đã quá thời gian kích nổ, phương thức này sẽ tiến hành xử lý các trạng thái của các đối tượng có liên quan
+        // (thay đổi hình ảnh, xóa đối tượng, cập nhật danh sách các điểm chết, các thẻ `is_edge` và các thẻ `is_middle`) và đặt lại các giá trị tương ứng.
         if (is_bomb == 2) {
             if (System.currentTimeMillis() - time_bomb < 1000L) {
                 if (System.currentTimeMillis() - time_tmp > 100L) {

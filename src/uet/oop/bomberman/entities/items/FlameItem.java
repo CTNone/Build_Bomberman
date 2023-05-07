@@ -19,7 +19,7 @@ public class FlameItem extends Items {
     public FlameItem() {
     }
 
-    // M? r?ng ph?m vi bom n?u ng??i ch?i nh?n ???c v?t ph?m
+    // Mở rộng phạm vi bom nếu người chơi nhận được vật phẩm
     @Override
     public void update() {
         for (Entity entity : block)
