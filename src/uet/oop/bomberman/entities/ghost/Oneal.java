@@ -7,11 +7,12 @@ import uet.oop.bomberman.graphics.Sprite;
 
 import static uet.oop.bomberman.BombermanGame.*;
 
+
 public class Oneal extends Animal {
     private static int swap_kill = 1;
     private static int count_kill = 0;
 
-    
+
     public Oneal(int x, int y, Image img) {
         super(x, y, img);
     }
@@ -25,7 +26,7 @@ public class Oneal extends Animal {
     }
 
     public Oneal() {
-        
+
     }
 
     private void killOneal(Animal animal) {
@@ -33,11 +34,11 @@ public class Oneal extends Animal {
             if (swap_kill == 1) {
                 animal.setImg(Sprite.oneal_dead.getFxImage());
                 swap_kill = 2;
-            } 
+            }
             else if (swap_kill == 2) {
                 animal.setImg(Sprite.player_dead3.getFxImage());
                 swap_kill = 3;
-            } 
+            }
             else {
                 animal.setLife(false);
                 enemy.remove(animal);
