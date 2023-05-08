@@ -11,23 +11,13 @@ import static uet.oop.bomberman.BombermanGame.width;
 public class Kondoria extends Animal {
 
     private static int swap_kill = 1; // đổi hình ảnh của quái vật khi bị tiêu diệt.
-    private static int count_kill = 0; //đếm số lần quái vật bị tiêu diệt.
+    private static int count_kill = 0; //biến đếm số lần quái vật bị tiêu diệt để load ảnh chết
     private static boolean direction; // lưu hướng di chuyển hiện tại
 
     public Kondoria(int x, int y, Image img) {
         super(x, y, img);
     }
 
-    public Kondoria(int is_move, int swap, String directionection, int count, int count_to_run) {
-        super(4, 1, "up", 0, 0);
-    }
-
-    public Kondoria(boolean life) {
-        super(life);
-    }
-
-    public Kondoria() {
-    }
 
     private void killKondoria(Animal animal) { // cập nhật hình ảnh chết và xóa khỏi danh sach
         if (count_kill % 16 == 0) { // hiện hình ảnh chết nhanh hay chậm

@@ -36,7 +36,7 @@ public class BombermanGame extends Application {
     public static final List<Entity> block = new ArrayList<>();     // Chứa các thực thể cố định
     public static int[][] id_objects; // mảng 2 chiều chứa ID của các đối tượng trên màn hình game.
     public static List<Animal> enemy = new ArrayList<>();
-    public static int[][] list_kill;
+    public static int[][] list_kill; // danh sách ô vuông đánh dấu là phá hủy trên duong bomb no
 
     public static Animal player;
     public static boolean running;
@@ -74,19 +74,19 @@ public class BombermanGame extends Application {
             if(player.isLife()) {
                 switch (event.getCode()) {
                     case DOWN:
-                       // System.out.println("down");
-                        Move.down(player);
+                      //  System.out.println("down");
+                        Move.down(player); // truyền đối tượng được di chuyển vào phương thức down
                         break;
                     case UP:
-                        //System.out.println("up");
+                       // System.out.println("up");
                         Move.up(player);
                         break;
                     case LEFT:
-                       // System.out.println("left");
+                     //   System.out.println("left");
                         Move.left(player);
                         break;
                     case RIGHT:
-                       // System.out.println("right");
+                     //   System.out.println("right");
                         Move.right(player);
                         break;
                     case SPACE:
@@ -95,7 +95,6 @@ public class BombermanGame extends Application {
                     case P:
                         isPause = !isPause;
                         break;
-                    /** xử lý thêm các nút như space, esc ...*/
                     default:
                         break;
                 }
@@ -113,10 +112,10 @@ public class BombermanGame extends Application {
 
         AnimationTimer timer = new AnimationTimer() { //CTN: cập nhật và hiển thị khung hình thường xuyên
             @Override
-            public void handle(long l) {
+            public void handle(long l) { // vòng lặp của game
                 if (running) {
                     render();
-                    if(!isPause){
+                    if(!isPause){ // nếu chưa dừng lại
                         update();
                         time();
                     }
@@ -130,7 +129,7 @@ public class BombermanGame extends Application {
         player.setLife(false);
 
     }
-    public void update() { //CTN: cập nhật thông tin mới nhất về các đối tượng
+    public void update() { //CTN: cập nhật thông tin
         block.forEach(Entity::update);
         enemy.forEach(Entity::update);
         player.update();
@@ -160,7 +159,7 @@ public class BombermanGame extends Application {
         waitToLevelUp();
         updateSound();
     }
-    public void render() { //CTN: vẽ các đối tượng đã được cập nhật lên khung hình.
+    public void render() { //CTN: vẽ các đối tượng
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight()); //CTN: xóa bỏ khung hình trước đó
         block.forEach(g -> g.render(gc));
         enemy.forEach(g -> g.render(gc));
@@ -172,13 +171,11 @@ public class BombermanGame extends Application {
     }
 
     public void time() {
-        frame++;
 
         long now = System.currentTimeMillis();
-        if (now - last_time > 1000) {
-            last_time = System.currentTimeMillis();
-            main_stage.setTitle("Bomberman | " + frame + " frame");// tiêu đề và FPS trong khi chơi
-            frame = 0;
+        if (now - last_time > 1000) { // 1s cập nhật 1 lần
+            last_time = System.currentTimeMillis(); // thời gian lần cuối câập nhật
+           main_stage.setTitle("Bomberman " );// tiêu đề
 
             time.setText("Time: " + time_number);
             time_number--;

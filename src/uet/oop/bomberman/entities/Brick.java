@@ -12,7 +12,7 @@ public class Brick extends Entity {
         super(x, y, img);
     }
 
-    private void checkHidden() {    //Kiểm tra khả năng hiển thị của Brick
+    private void checkHidden() {    //Kiểm tra xem đã bị phá hủy chưa, nếu rồi thì hiện grass
         for (Entity entity : block) {
             if (entity instanceof Brick)
                 if (list_kill[entity.getX() / 32][entity.getY() / 32] == 4) {    // Tại phần tử của mảng listKill 2 chiều với giá trị 4, Brick and Grass sẽ xuất hiện

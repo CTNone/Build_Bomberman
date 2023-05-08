@@ -39,8 +39,7 @@ public class Bomb extends Entity {
     }
 
     public static void putBomb() {      // sử dụng cho Bomber để đặt bom
-       // if (is_bomb == 0 && bomb_number > 0) {
-        if(1 == 1){
+        if (is_bomb == 0 && bomb_number > 0) {
             new SoundManager("sound/put_bombs.wav", "putBomb");
             bomb_number--;
             is_bomb = 1;

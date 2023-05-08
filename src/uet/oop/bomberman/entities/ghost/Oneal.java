@@ -17,18 +17,6 @@ public class Oneal extends Animal {
         super(x, y, img);
     }
 
-    public Oneal(int is_move, int swap, String direction, int count, int count_to_run) {
-        super(4, 1, "up", 0, 0);
-    }
-
-    public Oneal(boolean life) {
-        super(life);
-    }
-
-    public Oneal() {
-
-    }
-
     private void killOneal(Animal animal) {
         if (count_kill % 16 == 0) {
             if (swap_kill == 1) {

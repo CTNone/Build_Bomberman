@@ -15,13 +15,16 @@ public class Ballom extends Animal {
     private static int swap_kill = 1; // su dụng đẻ cập nhật hình ảnh chết
     private static int count_kill = 0;  //  tăng lên mỗi lần update, thước đo để hiện các hình ảnh chết
 
-    public Ballom(int is_move, int swap, String direction, int count, int count_to_run) {
-        super(4, 1, "up", 0, 0);
-    }
+//    public Ballom(int is_move, int swap, String direction, int count, int count_to_run) {
+//        super(4, 1, "up", 0, 0);
+//    }
 
-    public Ballom(){
-
-    }
+//    public Ballom(){
+//
+//    }
+    public Ballom(int x, int y, Image img) {
+    super(x, y, img);
+}
 
     private void killBallom(Animal animal) {    // cập nhật hình ảnh chết và xóa khỏi danh sach
         if (count_kill % 16 == 0) { // hiện hình ảnh chết nhanh hay chậm
@@ -47,15 +50,13 @@ public class Ballom extends Animal {
 
     private void kill() {
         for (Animal animal : enemy) {
-            if (list_kill[animal.getX() / 32][animal.getY() / 32] == 4) {
+            if (list_kill[animal.getX() / 32][animal.getY() / 32] == 4) { // nếu trong vung bom nổ
                 animal.setLife(false); // đã chết
             }
         }
     }
 
-    public Ballom(int x, int y, Image img) {
-        super(x, y, img);
-    }
+
 
     @Override
     public void update() {
