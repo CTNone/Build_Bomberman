@@ -18,6 +18,16 @@ public class Kondoria extends Animal {
         super(x, y, img);
     }
 
+//    public Kondoria(int is_move, int swap, String directionection, int count, int count_to_run) {
+//        super(4, 1, "up", 0, 0);
+//    }
+//
+//    public Kondoria(boolean life) {
+//        super(life);
+//    }
+//
+//    public Kondoria() {
+//    }
 
     private void killKondoria(Animal animal) { // cập nhật hình ảnh chết và xóa khỏi danh sach
         if (count_kill % 16 == 0) { // hiện hình ảnh chết nhanh hay chậm

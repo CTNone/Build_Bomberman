@@ -18,13 +18,10 @@ public class Ballom extends Animal {
 //    public Ballom(int is_move, int swap, String direction, int count, int count_to_run) {
 //        super(4, 1, "up", 0, 0);
 //    }
-
+//
 //    public Ballom(){
 //
 //    }
-    public Ballom(int x, int y, Image img) {
-    super(x, y, img);
-}
 
     private void killBallom(Animal animal) {    // cập nhật hình ảnh chết và xóa khỏi danh sach
         if (count_kill % 16 == 0) { // hiện hình ảnh chết nhanh hay chậm
@@ -56,7 +53,9 @@ public class Ballom extends Animal {
         }
     }
 
-
+    public Ballom(int x, int y, Image img) {
+        super(x, y, img);
+    }
 
     @Override
     public void update() {
