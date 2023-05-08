@@ -17,7 +17,7 @@ public class Bomber extends Animal {
     public Bomber(int x, int y, Image img) {
         super(x, y, img);
     }
-//    public Bomber() { }
+   // public Bomber() { }
 
     private void killBomber(Animal animal) { // sau khi phải chết thì load 3 ảnh và set là đã cết
         if (count_kill % 16 == 0) {
